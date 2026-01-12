@@ -1,0 +1,17 @@
+\contentsline {section}{\numberline {1}引言}{3}{}%
+\contentsline {subsection}{\numberline {1.1}研究背景与意义}{3}{}%
+\contentsline {section}{\numberline {2}系统总体设计}{3}{}%
+\contentsline {subsection}{\numberline {2.1}系统架构}{3}{}%
+\contentsline {section}{\numberline {3}硬件电路详细设计}{4}{}%
+\contentsline {subsection}{\numberline {3.1}主控模块设计}{4}{}%
+\contentsline {subsection}{\numberline {3.2}驱动逻辑电路设计}{4}{}%
+\contentsline {section}{\numberline {4}软件程序设计}{5}{}%
+\contentsline {subsection}{\numberline {4.1}中断与扫描机制}{5}{}%
+\contentsline {subsection}{\numberline {4.2}关键代码实现}{7}{}%
+\contentsline {subsubsection}{\numberline {4.2.1}定时器初始化}{7}{}%
+\contentsline {subsubsection}{\numberline {4.2.2}底层驱动函数}{8}{}%
+\contentsline {section}{\numberline {5}结论}{8}{}%
+\contentsline {section}{\numberline {A}附录：系统程序源代码}{8}{}%
+\contentsline {subsection}{\numberline {A.1}主函数 main.c}{8}{}%
+\contentsline {subsection}{\numberline {A.2}驱动源文件 Driver/Seg.c}{10}{}%
+\contentsline {subsection}{\numberline {A.3}初始化源文件 Driver/Init.c}{10}{}%

@@ -1,0 +1,43 @@
+# Keil C51 / MDK-ARM Build Files
+*.o
+*.obj
+*.lst
+*.dep
+*.hex
+*.map
+*.axf
+*.crf
+*.d
+*.htm
+*.lnp
+*.sct
+*.build_log.htm
+Objects/
+Listings/
+DebugConfig/
+RTE/
+
+# Keil Project User-specific files
+*.uvopt
+*.uvoptx
+*.uvgui.*
+*.uvguix.*
+*.bak
+
+# Proteus Simulation Files
+*.pdsprj.workspace
+*.pdsprj.*.workspace
+Project Backups/
+Backup Of *
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# OS Files
+Thumbs.db
+Desktop.ini
+.DS_Store

@@ -1,0 +1,36 @@
+﻿/* 闹钟触发标志 - 供main.c使用 */
+volatile uint8_t g_alarm_flag = 0;  /* 0:无闹钟, 1:闹钟A触发, 2:闹钟B触发 */
+
+/**
+ * @breif       设置闹钟B时间(按星期闹铃,24小时制)
+ * @param       week        : 星期几(1~7) 
+ * @param       hour,min,sec: 小时,分钟,秒钟
+ * @retval      无
+ */
+void rtc_set_alarmb(uint8_t week, uint8_t hour, uint8_t min, uint8_t sec)
+{
+    /* 关闭RTC寄存器写保护 */
+    RTC->WPR = 0xCA;
+    RTC->WPR = 0x53;
+    RTC->CR &= ~(1 << 9);   /* 关闭闹钟B */
+
+    while ((RTC->ISR & 0X02) == 0); /* 等待闹钟B修改允许 */
+
+    RTC->ALRMBR = 0;        /* 清空原来设置 */
+    RTC->ALRMBR |= 1 << 30; /* 按星期闹铃 */
+    RTC->ALRMBR |= 0 << 22; /* 24小时制 */
+    RTC->ALRMBR |= (uint32_t)rtc_dec2bcd(week) << 24;   /* 星期设置 */
+    RTC->ALRMBR |= (uint32_t)rtc_dec2bcd(hour) << 16;   /* 小时设置 */
+    RTC->ALRMBR |= (uint32_t)rtc_dec2bcd(min) << 8;     /* 分钟设置 */
+    RTC->ALRMBR |= (uint32_t)rtc_dec2bcd(sec);          /* 秒钟设置 */
+    RTC->ALRMBSSR = 0;      /* 不使用SUB SEC */
+    RTC->CR |= 1 << 13;     /* 开启闹钟B中断 */
+    RTC->CR |= 1 << 9;      /* 开启闹钟B */
+    RTC->WPR = 0XFF;        /* 禁止修改RTC寄存器 */
+
+    RTC->ISR &= ~(1 << 9);  /* 清除RTC闹钟B的标志 */
+    EXTI->PR = 1 << 17;     /* 清除LINE17上的中断标志位 */
+    EXTI->IMR |= 1 << 17;   /* 开启line17上的中断 */
+    EXTI->RTSR |= 1 << 17;  /* line17上事件上升降沿触发 */
+    sys_nvic_init(2, 2, RTC_Alarm_IRQn, 2); /* 抢占2，子优先级2，组2 */
+}

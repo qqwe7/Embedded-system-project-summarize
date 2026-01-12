@@ -1,0 +1,17 @@
+\contentsline {chapter}{摘要}{1}{chapter*.1}%
+\contentsline {chapter}{\numberline {第一章\hspace {.3em}}绪论}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}论文写作背景及意义}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}论文写作思路与方法}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}浩斯公司基本情况}{3}{section.1.3}%
+\contentsline {chapter}{\numberline {第二章\hspace {.3em}}浩斯公司产品出口现状}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}产品出口竞争力有所提升，但产业基础依然薄弱}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}电热电器为主要出口产品}{4}{section.2.2}%
+\contentsline {chapter}{\numberline {第三章\hspace {.3em}}浩斯公司产品出口存在问题的原因分析}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}企业忽视产品结构的合理性}{5}{section.3.1}%
+\contentsline {section}{\numberline {3.2}部分管理者没有意识到人才培养重要性}{5}{section.3.2}%
+\contentsline {section}{\numberline {3.3}产品出口过于集中}{5}{section.3.3}%
+\contentsline {section}{\numberline {3.4}企业出口管理体系存在问题}{5}{section.3.4}%
+\contentsline {chapter}{\numberline {第四章\hspace {.3em}}结论}{6}{chapter.4}%
+\contentsline {chapter}{参考文献}{7}{chapter*.3}%
+\contentsline {chapter}{致谢}{8}{chapter*.4}%
+\contentsfinish 

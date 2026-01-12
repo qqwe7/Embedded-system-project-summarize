@@ -1,0 +1,91 @@
+void Show_Str(u16 x, u16 y,u8 *str,u16 fc, u16 bc,u8 sizey,u8 mode)
+{					
+	u16 x0=x;							  	  
+    u8 bHz=0;     //bHz=0显示英文字符，bHz=1显示中文 
+	while(*str!=0)//数据未结束
+	{ 
+		if(!bHz)   // bHz=0显示英文字符
+		{
+			if(x>(lcddev.width-sizey/2)||y>(lcddev.height-sizey))  //超出显示边界
+                return; 
+			if(*str > 0x80)   //0x80=128，字符超出ascii码表，表示当前字符为中文
+                bHz=1;        //中文 
+			else              //英文字符
+			{          
+				if(*str==0x0D)//换行符号
+				{
+					y+=sizey;
+					x=x0;
+					str++; 
+				}
+                else
+				{
+					LCD_Show_Char(x,y,*str,fc,bc,sizey,mode);     //显示当前英文字符
+					x += sizey/2;                                 //字符,为全字的一半 
+				} 
+			  str++; 
+			}
+		}
+        else    //中文 
+		{   
+			if(x>(lcddev.width-sizey)||y>(lcddev.height-sizey))   //超出显示边界
+                return;  
+			bHz=0;          //下一个要显示的字符默认为英文    
+			if(sizey==32)
+				LCD_ShowChinese32x32(x,y,str,fc,bc,sizey,mode);	 	
+			else if(sizey==24)
+				LCD_ShowChinese24x24(x,y,str,fc,bc,sizey,mode);	
+			else if(sizey==16)
+			  LCD_ShowChinese16x16(x,y,str,fc,bc,sizey,mode);
+			else 
+			  LCD_ShowChinese12x12(x,y,str,fc,bc,sizey,mode);
+			
+				str+=2; 
+				x += sizey;//下一个汉字偏移	    
+			}						 
+	}   
+}
+
+/******************************************************************************
+      函数说明：显示图片
+      入口数据：x,y起点坐标
+                height 图片高度
+                width  图片宽度
+                pic[]  图片数组    
+      返回值：  无
+******************************************************************************/
+void LCD_ShowPicture(u16 x,u16 y,u16 width,u16 height,const u8 pic[])
+{
+	u8 picH,picL;
+	u16 i,j;
+	u32 k=0;
+	LCD_Address_Set(x,y,x+width-1,y+height-1);       //设置绘制图片的起始坐标和终点坐标
+    //LCD_SetCursor(x,y);
+	for(i=0;i<width;i++)
+	{
+		for(j=0;j<height;j++)
+		{
+			picH=pic[k*2];
+			picL=pic[k*2+1];
+			LCD_WR_DATA(picH<<8 | picL);
+			k++;
+		}
+	}
+    LCD_Address_Set(x,y,lcddev.width,lcddev.height);     //图片绘制完成后，重新设置终点坐标为屏幕宽和高320*480，避免清屏区域不全
+}
+
+/******************************************************************************
+      函数说明：显示图片1
+      入口数据：x,y起点坐标
+                height 图片高度
+                width  图片宽度    
+      返回值：  无
+******************************************************************************/
+void Pic1_test(u16 x,u16 y,u16 width,u16 height)
+{
+     LCD_ShowPicture(x,y,width,height,gImage_1);
+}
+
+/******************************************************************************
+      函数说明：显示图片2
+      入口数据：x,y起点坐标
