@@ -113,13 +113,39 @@ Project_Name/
 
 ---
 
-## 🤝 参与贡献 (Contributing)
-我们非常欢迎您提交优质的嵌入式项目！
-1.  Fork 本仓库。
-2.  新建分支 (`git checkout -b new-project`).
-3.  提交代码 (`git commit -m "Add new STM32 project"`).
-4.  推送到远程 (`git push origin new-project`).
-5.  提交 Pull Request。
+## 🤝 贡献规范 (Contribution & Merge Guidelines)
+
+我们非常欢迎您提交高质量的嵌入式项目！为了保持仓库的整洁与高质量，请在提交 Pull Request 之前仔细阅读以下合并规范：
+
+### 1. 项目命名与分类
+*   **位置**: 请根据项目所使用的芯片架构，将项目放入 `01_51_Series`, `02_STM32_Series` 或 `03_Linux_Vision` 文件夹中。
+*   **命名**: 文件夹名称应简洁明了，建议使用“**芯片型号-项目功能**”的格式。
+    *   ✅ 推荐: `STM32F103-OLED_Display`, `8051-Traffic_Light`
+    *   ❌ 避免: `test1`, `新建文件夹`, `my_project`
+
+### 2. 文件清理 (Clean Up)
+提交前，请务必清理编译器生成的临时文件，以减小仓库体积。
+*   **必须保留**: `.c`, `.h`, `.uvprojx`, `.pdsprj`, `.hex` (可选), `.pdf/docx` (文档)。
+*   **必须删除**: 
+    *   `Listings/` 和 `Objects/` 文件夹下的 `.o`, `.d`, `.crf`, `.lnp` 等中间文件。
+    *   `.vscode/` (个人配置), `.git/` (子仓库文件)。
+
+### 3. 文档要求
+每个独立的项目文件夹内，**强烈建议**包含一个 `README.md`，简单说明：
+*   **功能**: 项目是做什么的？
+*   **硬件**: 用了什么单片机？接线方式是怎样的？
+*   **效果**: 如果有实物图或仿真截图，请务必附上。
+
+### 4. Git 提交工作流 (Workflow)
+1.  **Fork** 本仓库到你的 GitHub 账号。
+2.  **Clone** 你的 Fork 版本到本地。
+3.  **新建分支**: `git checkout -b add/your-project-name`。
+4.  **提交更改**: 
+    ```bash
+    git add .
+    git commit -m "feat: add STM32F103 OLED display project"
+    ```
+5.  **Push** 到远程分支并提交 **Pull Request**。
 
 ---
 *维护者: qqwe7*
