@@ -1,42 +1,101 @@
 # 嵌入式系统开发项目合集 (Embedded Systems Projects)
 
+![Embedded](https://img.shields.io/badge/Embedded-Systems-blue.svg) ![License](https://img.shields.io/badge/License-MIT-green.svg) ![Update](https://img.shields.io/badge/Update-2026-orange.svg)
+
 ## 📖 简介 (Introduction)
-本项目仓库用于收录和整理各类嵌入式开发项目，涵盖了从基础的课程设计、实验作业到复杂的毕业设计。
-内容涉及多个硬件平台、传感器集成、电路仿真以及上位机交互。
 
-## 📂 项目分类 (Project Categories)
+本项目仓库是一个综合性的嵌入式系统资源库，旨在收录从基础教学实验到复杂工业原型、毕业设计的各类项目。内容涵盖了从底层的 **8-bit MCU** 控制，到高层的 **32-bit Cortex-M** 开发，以及基于 **Linux** 的智能嵌入式应用。
 
-本仓库的项目主要分为以下几类：
-
-- **🟢 51单片机系列 (MCS-51)**: 基础外设控制、定时器、中断系统及 Proteus 仿真。
-- **🔵 STM32 系列 (ARM Cortex-M)**: 寄存器/标准库/HAL库开发，涉及 RTOS、复杂总线协议及高级外设驱动。
-- **🟠 机器视觉与 AI (Advanced)**: 基于 Linux 开发板（如 OrangePi）的视觉识别、深度学习模型部署。
-- **🟡 其他平台**: 包括 Arduino、ESP32 等其他微控制器的应用开发。
-
-## 🛠️ 技术栈 (Tech Stack)
-
-- **硬件平台**: STC89C51, STM32F1/F4, OrangePi, etc.
-- **开发工具**: Keil uVision, VS Code, STM32CubeIDE, PyCharm.
-- **仿真与设计**: Proteus, Altium Designer/KiCad (PCB).
-- **语言**: C, C++, Python.
-
-## 📁 目录结构说明 (Directory Structure)
-
-为了保持项目整洁，大多数项目遵循以下组织结构：
-
-```text
-项目文件夹/
-├── 内容/           # 核心交付资源
-│   ├── 代码/       # 源代码及工程文件 (Source Code)
-│   ├── 仿真/       # 电路仿真文件 (Simulation)
-│   └── 文档/       # 报告、论文或视频说明 (Documentation)
-└── 题目/           # 原始需求、任务书或参考资料 (Requirements)
-```
-
-## 🚀 如何使用
-1. 克隆仓库到本地。
-2. 根据分类进入对应的项目文件夹。
-3. 参考 `内容/代码` 文件夹下的工程文件进行编译或烧录。
+这些项目不仅包含完整的**源代码**，还附带了详细的**硬件仿真电路**、**设计文档**以及**实验报告**，非常适合嵌入式学习者参考和开发者二次开发。
 
 ---
-*持续更新中...*
+
+## 📂 项目分类与技术细节 (Project Categories)
+
+### 🟢 51单片机系列 (MCS-51 / 8-bit)
+*   **定位**: 基础逻辑、外设驱动、工业控制入门。
+*   **核心芯片**: AT89C51, STC89C52 等。
+*   **技术栈**: 
+    *   寄存器开发、汇编/C语言混编。
+    *   定时器/计数器、外部中断处理。
+    *   LCD1602/12864 显示驱动、数码管动态扫描、矩阵键盘。
+    *   I2C/SPI 软件模拟协议。
+*   **仿真**: 深度集成 Proteus 电路仿真。
+
+### 🔵 STM32 系列 (ARM Cortex-M / 32-bit)
+*   **定位**: 高性能控制、多任务处理、实时系统应用。
+*   **核心芯片**: STM32F103 (C8T6/ZET6), STM32F407 (探索者/最小系统板) 等。
+*   **技术栈**:
+    *   **库文件**: 标准库 (Standard Peripheral Lib) 与 HAL 库开发。
+    *   **外设**: ADC/DAC 高速采集、PWM 电机控制、DMA 内存传输。
+    *   **总线**: CAN 总线通信、FSMC 屏幕驱动、USB 设备开发。
+    *   **RTOS**: 部分项目集成 FreeRTOS 或 RT-Thread。
+
+### 🟠 智能硬件与 Linux 视觉 (Advanced)
+*   **定位**: 边缘计算、物联网网关、机器视觉。
+*   **核心平台**: OrangePi (香橙派), Raspberry Pi, Jetson Nano。
+*   **技术栈**:
+    *   嵌入式 Linux 系统构建与 Shell 脚本。
+    *   Python 驱动开发 (GPIO, I2C, UART)。
+    *   OpenCV 图像处理、YOLO 目标检测模型部署。
+    *   MQTT/HTTP 物联网协议接入云平台。
+
+---
+
+## 🛠️ 推荐开发环境 (Development Environment)
+
+为了确保项目能够顺利运行，建议安装以下软件工具：
+
+| 工具名称 | 推荐版本 | 用途 |
+| :--- | :--- | :--- |
+| **Keil uVision5** | C51 & MDK-ARM | 51 与 STM32 的代码编写与编译 |
+| **Proteus** | 8.9 或更高 | 硬件电路仿真与代码联调 |
+| **STM32CubeMX** | 最新版 | STM32 初始化代码生成与时钟配置 |
+| **VS Code** | - | 代码阅读、Python 脚本开发 |
+| **Serial Port Utility** | - | 串口调试工具，用于波形观察与数据交互 |
+
+---
+
+## 📁 标准化目录结构 (Directory Structure)
+
+为了维护代码的长期可维护性，本仓库所有项目原则上遵循以下结构：
+
+```text
+Project_Name/
+├── 内容 (Core_Assets)/
+│   ├── 代码 (Source_Code)/      # Keil工程、源文件、头文件
+│   ├── 仿真 (Simulation)/       # Proteus (.pdsprj) 或其他仿真文件
+│   └── 文档 (Documentation)/    # 设计报告 (PDF/Word)、原理图、演示视频
+└── 题目 (Requirements)/         # 项目任务书、原始需求说明、参考资料
+```
+
+---
+
+## 🚀 快速上手指南
+
+1.  **克隆仓库**:
+    ```bash
+    git clone https://github.com/qqwe7/Embedded-system-project-summarize.git
+    ```
+2.  **选择项目**: 进入对应的文件夹，查看 `README` 或 `使用说明`。
+3.  **打开工程**:
+    *   如果是 `.uvproj` 或 `.uvprojx`，请使用 Keil 打开。
+    *   如果是 `.pdsprj`，请使用 Proteus 打开。
+4.  **编译与运行**: 确保相关驱动库（如库函数路径）配置正确，编译无误后即可下载或启动仿真。
+
+## ⚠️ 注意事项 (Disclaimers)
+
+*   **路径问题**: 请不要在包含中文字符的路径下打开 Keil 工程，否则可能导致编译失败或路径报错。
+*   **库支持**: STM32 项目可能需要对应的 Device Family Pack (DFP)，请通过 Keil Pack Installer 预先安装。
+*   **版权声明**: 本项目集仅供个人学习与技术交流使用。
+
+---
+
+## 🤝 贡献与反馈
+
+如果你有新的嵌入式项目想要分享，或者发现现有项目存在 Bug，欢迎通过以下方式参与：
+- 提交 **Issue** 报告问题。
+- 提交 **Pull Request** 贡献代码。
+
+---
+*Last Updated: 2026-01-13*
