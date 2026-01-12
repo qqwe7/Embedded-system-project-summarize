@@ -1,92 +1,116 @@
-# 嵌入式系统开发项目合集 (Embedded Systems Projects)
+# Embedded Systems Project Collection | 嵌入式系统项目合集
 
-![Embedded](https://img.shields.io/badge/Embedded-Systems-blue.svg) ![License](https://img.shields.io/badge/License-MIT-green.svg) ![Update](https://img.shields.io/badge/Update-2026-orange.svg)
+![Platform](https://img.shields.io/badge/Platform-51%20%7C%20STM32%20%7C%20Linux-blue) ![Language](https://img.shields.io/badge/Language-C%20%7C%20C%2B%2B%20%7C%20Python-green) ![Tools](https://img.shields.io/badge/Tools-Keil%20%7C%20Proteus%20%7C%20VSCode-orange)
 
-## 📖 简介 (Introduction)
+## 📖 Overview | 项目简介
 
-本项目仓库是一个综合性的嵌入式系统资源库，旨在收录从基础教学实验到复杂工业原型、毕业设计的各类项目。内容涵盖了从底层的 **8-bit MCU** 控制，到高层的 **32-bit Cortex-M** 开发，以及基于 **Linux** 的智能嵌入式应用。
+**English**
+This repository serves as a centralized archive for embedded system development resources. It is structured to support learners and engineers by providing modular, well-documented examples across different hardware architectures. The projects cover everything from basic peripheral drivers to complex system designs.
 
-这些项目不仅包含完整的**源代码**，还附带了详细的**硬件仿真电路**、**设计文档**以及**实验报告**，非常适合嵌入式学习者参考和开发者二次开发。
+**中文**
+本项目仓库是一个综合性的嵌入式系统资源库，旨在为学习者和工程师提供模块化、文档完善的开发示例。内容涵盖了从基础的底层外设驱动到复杂的系统级设计，支持多种主流硬件架构。
 
----
-
-## 📂 项目分类 (Project Categories)
-
-项目文件已按照技术栈进行了物理分类，结构如下：
-
-### 🟢 [01_51_Series](./01_51_Series) (MCS-51 / 8-bit)
-*   **定位**: 基础逻辑、外设驱动、工业控制入门。
-*   **核心芯片**: AT89C51, STC89C52 等。
-*   **内容**:
-    *   **数码管时钟/秒表**: 定时器、中断与动态扫描逻辑。
-    *   **温室大棚监控**: 传感器读取与阈值报警系统。
-    *   **数码管显示实验**: 基础 GPIO 控制。
-
-### 🔵 [02_STM32_Series](./02_STM32_Series) (ARM Cortex-M / 32-bit)
-*   **定位**: 高性能控制、多任务处理、实时系统应用。
-*   **核心芯片**: STM32F103, STM32F407。
-*   **内容**:
-    *   **毕设导盲杖**: 多传感器融合与语音交互。
-    *   **简易逻辑分析仪**: 信号采集与 Python 上位机通信。
-    *   **F4探索者应用**: 屏幕驱动与标准库闹钟设计。
-
-### 🟠 [03_Linux_Vision](./03_Linux_Vision) (Advanced)
-*   **定位**: 边缘计算、物联网网关、机器视觉。
-*   **核心平台**: OrangePi (香橙派)。
-*   **内容**:
-    *   **YOLO视觉识别**: 基于深度学习的目标检测毕设项目。
+**Key Features / 核心内容:**
+*   **Peripheral Drivers / 外设驱动**: GPIO, UART, I2C, SPI, ADC/DAC, Timers.
+*   **System Design / 系统设计**: FSM (Finite State Machines), RTOS integration, Interrupt handling.
+*   **Simulation / 硬件仿真**: Proteus circuit simulation for verification without physical hardware.
+*   **Interaction / 上位机交互**: Data visualization and control using Python or Serial tools.
 
 ---
 
-## 🛠️ 推荐开发环境 (Development Environment)
+## 📂 Repository Structure | 仓库结构
 
-为了确保项目能够顺利运行，建议安装以下软件工具：
+The repository is organized by hardware architecture.
+仓库按照硬件架构进行分类组织。
 
-| 工具名称 | 推荐版本 | 用途 |
-| :--- | :--- | :--- |
-| **Keil uVision5** | C51 & MDK-ARM | 51 与 STM32 的代码编写与编译 |
-| **Proteus** | 8.9 或更高 | 硬件电路仿真与代码联调 |
-| **STM32CubeMX** | 最新版 | STM32 初始化代码生成与时钟配置 |
-| **VS Code** | - | 代码阅读、Python 脚本开发 |
-| **Serial Port Utility** | - | 串口调试工具，用于波形观察与数据交互 |
+### 🟢 `01_51_Series` (MCS-51 Architecture)
+*   **Hardware / 硬件平台**: AT89C51, STC89C52, and compatible 8-bit MCUs.
+*   **Focus / 侧重**:
+    *   Register-level programming (寄存器级编程).
+    *   Direct IO manipulation (直接 IO 控制).
+    *   Basic display driving: LED, 7-Segment, LCD1602 (基础显示驱动).
+*   **Tools / 工具**: Keil C51, Proteus.
+
+### 🔵 `02_STM32_Series` (ARM Cortex-M Architecture)
+*   **Hardware / 硬件平台**: STM32F1 (Cortex-M3), STM32F4 (Cortex-M4).
+*   **Focus / 侧重**:
+    *   High-performance signal processing (高性能信号处理).
+    *   Complex bus protocols: CAN, USB, FSMC (复杂总线协议).
+    *   Standard Peripheral Lib (SPL) & HAL Library (标准库与HAL库开发).
+    *   RTOS & Advanced HMI (实时操作系统与高级人机交互).
+*   **Tools / 工具**: Keil MDK-ARM, STM32CubeMX, Serial Port Utility.
+
+### 🟠 `03_Linux_Vision` (Advanced / SBC)
+*   **Hardware / 硬件平台**: Single Board Computers like OrangePi, Raspberry Pi (香橙派/树莓派).
+*   **Focus / 侧重**:
+    *   Embedded Linux setup (嵌入式 Linux 环境搭建).
+    *   Computer Vision: OpenCV, YOLO (机器视觉).
+    *   Python hardware control (Python 硬件控制).
+    *   IoT Communication: MQTT, Socket (物联网通信).
+*   **Tools / 工具**: VS Code (Remote-SSH), Python 3.x.
 
 ---
 
-## 📁 标准化目录结构 (Directory Structure)
+## ⚙️ Environment Setup | 环境配置指南
 
-为了维护代码的长期可维护性，本仓库所有项目原则上遵循以下结构：
+### 1. Keil uVision Setup (For 51 & STM32)
+*   **Installation / 安装**: Install **Keil uVision 5**.
+*   **Toolchain / 工具链**:
+    *   `01_51_Series`: Requires **C51** toolchain.
+    *   `02_STM32_Series`: Requires **MDK-ARM** toolchain.
+*   **Pack Management / 芯片包**:
+    *   Open "Pack Installer" and install the Device Family Pack (DFP) for your specific chip (e.g., `Keil::STM32F1xx_DFP`).
+    *   *请务必安装对应芯片的 DFP 包，否则无法选择目标芯片。*
+*   **Encoding / 编码**:
+    *   Ensure "Encode in ANSI" (for GB2312) or "UTF-8" is selected to avoid garbled Chinese comments.
+    *   *建议检查编辑器的编码设置，防止中文注释乱码。*
+
+### 2. Proteus Simulation | Proteus 仿真
+*   **Version / 版本**: Recommended **Proteus 8.9** or newer. (建议使用 8.9 或更高版本).
+*   **Linking Firmware / 固件关联**:
+    1.  Double-click the MCU in the schematic. (双击原理图中的单片机).
+    2.  Locate `Program File`. (找到 Program File 选项).
+    3.  Select the `.hex` or `.axf` file from the `Objects/Output` folder. (选择编译生成的 hex 或 axf 文件).
+
+### 3. Hardware Debugging | 硬件调试
+*   **Drivers / 驱动**: Install **CH340** or **CP2102** USB-TTL drivers.
+*   **Debugger / 调试器**: Install ST-Link or J-Link drivers for STM32.
+*   **Tools / 串口工具**: Use XCOM, SSCOM, or MobaXterm for UART debugging.
+
+---
+
+## 📝 Standard Project Layout | 标准项目结构
+
+Projects typically follow this internal structure:
+项目通常遵循以下目录结构：
 
 ```text
-Category_Folder/             # e.g., 02_STM32_Series
-├── Project_Name/            # 具体项目文件夹
-│   ├── 内容 (Core_Assets)/
-│   │   ├── 代码 (Source_Code)/      # Keil工程、源文件
-│   │   ├── 仿真 (Simulation)/       # Proteus (.pdsprj)
-│   │   └── 文档 (Documentation)/    # 报告、论文、视频
-│   └── 题目 (Requirements)/         # 任务书、需求说明
+Project_Root/
+├── Core/               # Main logic (main.c, interrupts) | 主程序逻辑
+├── Drivers/            # Hardware abstraction (BSP)      | 硬件驱动层
+│   ├── Inc/            # Header files (.h)               | 头文件
+│   └── Src/            # Source files (.c)               | 源文件
+├── Simulation/         # Proteus .pdsprj files           | 仿真工程文件
+├── Docs/               # Datasheets, Reports             | 设计文档与报告
+└── Output/             # Compiled binaries (.hex)        | 编译输出文件
 ```
 
 ---
 
-## 🚀 快速上手指南
+## ⚠️ Common Troubleshooting | 常见问题排查
 
-1.  **克隆仓库**:
-    ```bash
-    git clone https://github.com/qqwe7/Embedded-system-project-summarize.git
-    ```
-2.  **进入分类文件夹**: 根据你的需求进入 `01_51_Series`, `02_STM32_Series` 或 `03_Linux_Vision`。
-3.  **打开工程**:
-    *   如果是 `.uvproj` 或 `.uvprojx`，请使用 Keil 打开。
-    *   如果是 `.pdsprj`，请使用 Proteus 打开。
-4.  **编译与运行**: 确保相关驱动库（如库函数路径）配置正确，编译无误后即可下载或启动仿真。
+| Issue (问题) | Possible Cause (可能原因) | Solution (解决方法) |
+| :--- | :--- | :--- |
+| **Target not created** | Missing compiler output setting. | Check "Options for Target" -> "Output" -> "Create HEX File". (勾选生成 HEX 文件) |
+| **L6235E: More than one...** | Duplicate files in project. | Remove duplicate source files in Keil project tree. (移除工程中重复添加的源文件) |
+| **Simulation Crash** | High CPU load or version mismatch. | Increase timestep or use compatible Proteus version. (增加仿真步长或更换版本) |
+| **Garbled Comments (乱码)** | Encoding mismatch (ANSI/UTF-8). | Change Editor encoding in Keil (Configuration -> Editor). (修改编辑器编码设置) |
 
 ---
 
-## ⚠️ 注意事项 (Disclaimers)
-
-*   **路径问题**: 请不要在包含中文字符的路径下打开 Keil 工程，否则可能导致编译失败或路径报错。
-*   **库支持**: STM32 项目可能需要对应的 Device Family Pack (DFP)，请通过 Keil Pack Installer 预先安装。
-*   **版权声明**: 本项目集仅供个人学习与技术交流使用。
+## 🤝 Contribution | 贡献
+Contributions are welcome! Please ensure you follow the existing directory structure when submitting a Pull Request.
+欢迎提交 PR！提交时请遵循现有的目录结构规范。
 
 ---
-*Last Updated: 2026-01-13*
+*Maintained by: qqwe7*
